@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctawareLMS", "OctawareLMS\OctawareLMS.csproj", "{0903329F-2D8F-4C4B-8A9A-7047B84AFADF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0903329F-2D8F-4C4B-8A9A-7047B84AFADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0903329F-2D8F-4C4B-8A9A-7047B84AFADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0903329F-2D8F-4C4B-8A9A-7047B84AFADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0903329F-2D8F-4C4B-8A9A-7047B84AFADF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E597B6BB-BBD1-46EC-BB1E-54878DEB19A9}
+	EndGlobalSection
+EndGlobal
