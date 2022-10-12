@@ -8,39 +8,47 @@ namespace OctawareLMS.Controllers
     public class HomeController : Controller
     {
         public static bool isLoggedIn=false;
-        
-        private readonly ILogger<HomeController> _logger;
-
+       
         private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+           
             this._context = context;
         }
 
-        public IActionResult Index(int id)
+        public IActionResult Index(int? id)
         {
             if (isLoggedIn)
             {
-                
-                Employee employee = _context.employees.Where(temp => temp.Id == id).FirstOrDefault();
-                return View(employee);
-            }
+                try
+                {
+                    Employee employee = _context.employees.Where(temp => temp.Id == id).FirstOrDefault();
+                    ViewBag.id = employee.Id;
+                    return View(employee);
+                }
+                catch(NullReferenceException ex)
+                {
+                    isLoggedIn = false;
+                    
+                    return RedirectToAction("Login");
+                }
+               
 
+            }
             return RedirectToAction("Login");
         }
-        
+
         public IActionResult Login(LoginViewModel loginViewModel)
         {
-            if (!loginViewModel.Id.Equals(null))
+            if (ModelState.IsValid)
             {
                 isLoggedIn = true;
-
-                RedirectToAction("Index",new { id = loginViewModel.Id });
+               
+                return RedirectToAction("Index",new { id = loginViewModel.Id });
             }
            
-            return View();
+           return View(loginViewModel);   
         }
 
 

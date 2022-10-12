@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using OctawareLMS.Data;
 
@@ -10,6 +11,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("defaultSqlConnection"));
     
 });
+builder.Services.AddRazorPages()
+    .AddMvcOptions(options =>
+    {
+        options.MaxModelValidationErrors = 50;
+        options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
+            _ => "The field is required.");
+    });
 
 builder.Services.AddControllersWithViews();
 

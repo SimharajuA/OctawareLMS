@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,24 +20,27 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        @*<li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                       
+                            <li class="nav-item">
+                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Home" asp-action="Index" asp-route-id="@ViewBag.id">Home</a>
+                            </li>
+                            @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>*@
-                        <li class="nav-item">
-                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Manager" asp-action="">Manager Detailes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Leave" asp-action="">Apply for leave</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Leave" asp-action="">Applied Leaves Status</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Leave" asp-action="">My Employees Leave Requests</a>
-                        </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-dark bg-info" href="~/Manager/Details/@ViewBag.id">Manager Detailes</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Leave" asp-action="Apply" asp-route-id="@ViewBag.id">Apply for leave</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Leave" asp-action="LeaveStatus" asp-route-id="@ViewBag.id">Applied Leaves Status</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Leave" asp-action="ReportingEmployeesLeaves" asp-route-id="@ViewBag.id">My Employees Leave Requests</a>
+                            </li>
+                 
+                        
                     </ul>
                 </div>
             </div>

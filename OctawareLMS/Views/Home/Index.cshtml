@@ -4,27 +4,34 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome @Model.Name</h1>
-    <h2>Profile</h2>
-    <div class="align-middle">
-        <table>
-            <tr>
-                <th>Id</th>
-                <td>@Model.Id</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>@Model.Name</td>
-            </tr>
-            <tr>
-                <th>Date Of Joining</th>
-                <td>@Model.DateOfJoining.Date</td>
-            </tr>
-            <tr>
-                <th>Date Of Birth</th>
-                <td>@Model.DateOfBirth.Date</td>
-            </tr>
-        </table>
-</div>
-    
+    @if(Model==null){
+       <h1 class="alert-warning">Please provide valid Emp ID</h1>
+    }
+    else{
+        <h1 class="display-4">Welcome @Model.Name</h1>
+        <div class="container-fluid">
+            <div class="align-middle">
+                <h2>Profile</h2>
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <td>@Model.Id</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>@Model.Name</td>
+                    </tr>
+                    <tr>
+                        <th>Date Of Joining</th>
+                        <td>@Model.DateOfJoining.Date</td>
+                    </tr>
+                    <tr>
+                        <th>Date Of Birth</th>
+                        <td>@Model.DateOfBirth.Date</td>
+                    </tr>
+                </table>
+            </div>
+            </div>
+        
+    }
 </div>
