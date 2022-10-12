@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OctawareLMS.Data;
 using OctawareLMS.Models;
 using System.Diagnostics;
 
@@ -10,16 +11,21 @@ namespace OctawareLMS.Controllers
         
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context)
         {
             _logger = logger;
+            this._context = context;
         }
 
         public IActionResult Index(int id)
         {
             if (isLoggedIn)
             {
-                return View();
+                
+                Employee employee = _context.employees.Where(temp => temp.Id == id).FirstOrDefault();
+                return View(employee);
             }
 
             return RedirectToAction("Login");
