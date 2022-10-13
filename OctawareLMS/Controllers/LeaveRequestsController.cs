@@ -23,6 +23,13 @@ namespace OctawareLMS.Controllers
             EmpId = id;
             //_context.leaveRequests.ToListAsync()
             List<LeaveRequest> leaveRequest = await _context.leaveRequests.Where(temp => temp.Employee.ManagerId == id).ToListAsync();
+            //List<Employee> employee = new List<Employee>();
+            //foreach(var item in leaveRequest)
+            //{
+            //        employee.Add(_context.leaveRequests.Where(temp => temp.Id == item.Id).FirstOrDefault().Employee);
+                
+            //}
+            //ViewBag.employee = employee;
             return View(leaveRequest);
         }
 
