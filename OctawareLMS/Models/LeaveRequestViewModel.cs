@@ -11,10 +11,10 @@ namespace OctawareLMS.Models
         public string LeaveType { get; set; }
 
         [Display(Name = "Start Date")]
-        [Required]
+        [Required(ErrorMessage = "select the start date")]
         public DateTime StartDate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "select the end date")]
         [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
 

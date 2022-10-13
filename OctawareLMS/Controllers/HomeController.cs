@@ -45,6 +45,13 @@ namespace OctawareLMS.Controllers
             return RedirectToAction("Login");
         }
 
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public IActionResult Login(LoginViewModel loginViewModel)
         {
             if (ModelState.IsValid)
