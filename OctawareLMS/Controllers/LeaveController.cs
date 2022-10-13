@@ -71,21 +71,12 @@ namespace OctawareLMS.Controllers
         public IActionResult LeaveStatus(int id)
         {
             //this action method will retrive all his leave request that he raised based in employee id
-            List<LeaveRequest> leave = _context.leaveRequests.Where(temp => temp.Employee.Id == id).OrderByDescending(temp => temp.Status).ToList();
+            List<LeaveRequest> leave = _context.leaveRequests.Where(temp => temp.Employee.Id == id).OrderByDescending(temp => temp.EndDate).ToList();
 
 
             ViewBag.id = id;
             return View(leave);
         }
 
-
-        //we can create a new controller for this below method and scaffoled everything 
-        public IActionResult ReportingEmployeesLeaves(int id)
-        {
-            //this action method will retrive all leave request received to him
-
-            ViewBag.id = id;
-            return View();
-    }
 }
 }

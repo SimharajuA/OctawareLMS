@@ -25,7 +25,13 @@ namespace OctawareLMS.Controllers
                 {
                     Employee employee = _context.employees.Where(temp => temp.Id == id).FirstOrDefault();
                     ViewBag.id = id;
+                    if(employee == null)
+                    {
+                        TempData["invalid"] = "Please provide Valid Employee id";
+                        return RedirectToAction("Login");
+                    }
                     return View(employee);
+
                 }
                 catch(NullReferenceException ex)
                 {
@@ -33,7 +39,7 @@ namespace OctawareLMS.Controllers
                     
                     return RedirectToAction("Login");
                 }
-               
+                
 
             }
             return RedirectToAction("Login");
