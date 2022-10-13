@@ -1,7 +1,48 @@
-﻿
+﻿@model IEnumerable<OctawareLMS.Models.LeaveRequest>
+
 @{
-    ViewData["Title"] = "LeaveStatus";
+    ViewData["Title"] = "Leave Status Page";
 }
 
-<h1>My Leave Applications</h1>
+<div class="text-center">
+    @if (Model == null)
+    {
+        <h1 class="alert-warning">NO REQUEST </h1>
+    }
+    else
+    {
+        <h1 class="alert-primary">@TempData["Message"]</h1>
+        <h1 class="display-4">Leave Applications Status </h1>
+        <div class="container-fluid">
+            <div class="align-middle">
+                <h2>My status</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                           
+                            <th scope="col">Leave Type</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">No of Days</th>
+                            <th scope="col">Comments</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    @foreach (var i in Model)
+                    {<tbody>
+                            <tr>
+                                <td>@i.LeaveType</td>
+                                <td>@i.StartDate</td>
+                                <td>@i.EndDate</td>
+                                <td>@i.NumberOfDays</td>
+                                <td>@i.Comment</td>
+                                <td>@i.Status</td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
 
+    }
+</div>

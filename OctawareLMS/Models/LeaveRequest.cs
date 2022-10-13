@@ -8,6 +8,7 @@ namespace OctawareLMS.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public Employee Employee { get; set; }  
 
         [Required]

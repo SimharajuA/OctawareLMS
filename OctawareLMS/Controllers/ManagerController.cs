@@ -27,7 +27,7 @@ namespace OctawareLMS.Controllers
         {
            int managerId = _context.employees.Where(temp=>temp.Id == id).FirstOrDefault().ManagerId;
             Employee manager = _context.employees.Where(temp => temp.Id == managerId).FirstOrDefault();
-            @ViewBag.id=id;
+            ViewBag.id=id;
             return View(manager);
         }
     }

@@ -24,7 +24,7 @@ namespace OctawareLMS.Controllers
                 try
                 {
                     Employee employee = _context.employees.Where(temp => temp.Id == id).FirstOrDefault();
-                    ViewBag.id = employee.Id;
+                    ViewBag.id = id;
                     return View(employee);
                 }
                 catch(NullReferenceException ex)
