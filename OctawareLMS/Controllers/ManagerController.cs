@@ -26,6 +26,10 @@ namespace OctawareLMS.Controllers
         public IActionResult Details(int id)
         {
            int managerId = _context.employees.Where(temp=>temp.Id == id).FirstOrDefault().ManagerId;
+            if(managerId == null)
+            {
+                return NotFound();
+            }
             Employee manager = _context.employees.Where(temp => temp.Id == managerId).FirstOrDefault();
             ViewBag.id=id;
             return View(manager);
