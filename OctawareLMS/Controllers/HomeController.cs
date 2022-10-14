@@ -27,7 +27,7 @@ namespace OctawareLMS.Controllers
                     ViewBag.id = id;
                     if(employee == null)
                     {
-                        TempData["invalid"] = "Please provide Valid Employee id";
+                        TempData["invalid"] = "Please provide Valid Employee Id and Password";
                         return RedirectToAction("Login");
                     }
                     return View(employee);
